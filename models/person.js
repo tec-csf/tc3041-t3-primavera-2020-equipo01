@@ -13,6 +13,12 @@ const PersonSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  cid :{
+    type: String
+  },
+  sid: {
+    type: String
+  }
 });
 
 const People = module.exports = mongoose.model('People', PersonSchema);

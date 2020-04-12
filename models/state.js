@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const StateSchema = mongoose.Schema({
   name: {
     type: String
-  }
+  },
+  cid :{
+    type: String
+  },
 });
 
 

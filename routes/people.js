@@ -3,7 +3,7 @@ const router = express.Router();
 const People = require('../models/person');
 
 // add person
-router.post('/add', (req, res, next) => {
+router.post('/add', function(req, res, next) {
   // create object with post info
   let newPerson = new People({
     _id: req.body._id,
