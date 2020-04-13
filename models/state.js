@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 
 const StateSchema = mongoose.Schema({
+  _id:{
+    type: int,
+    Required: True
+  },
   name: {
     type: String
   },
