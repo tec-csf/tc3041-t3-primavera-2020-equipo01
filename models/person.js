@@ -14,10 +14,10 @@ const PersonSchema = mongoose.Schema({
     required: true
   },
   cid :{
-    type: String
+    type: Int
   },
   sid: {
-    type: String
+    type: Int
   }
 });
 
