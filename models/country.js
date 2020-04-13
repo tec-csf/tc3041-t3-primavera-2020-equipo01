@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const CountrySchema = mongoose.Schema({
   _id: {
-    type: String,
+    type: Int,
     required: true
   },
   name: {
