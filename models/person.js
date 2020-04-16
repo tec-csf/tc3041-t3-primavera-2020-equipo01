@@ -17,7 +17,7 @@ const PersonSchema = mongoose.Schema({
     type: Int,
   },
   covid:{
-    type: bool,
+    type: Boolean,
   }
   cid :{
     type: Int
