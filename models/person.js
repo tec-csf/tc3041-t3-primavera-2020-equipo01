@@ -13,6 +13,12 @@ const PersonSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  age:{
+    type: Int,
+  },
+  covid:{
+    type: bool,
+  }
   cid :{
     type: Int
   },
