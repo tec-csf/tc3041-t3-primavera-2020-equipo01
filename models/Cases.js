@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+var Float = require('mongoose-float').loadType(mongoose);
 
 const CasesSchema = mongoose.Schema({
   _id: {
@@ -26,10 +27,10 @@ const CasesSchema = mongoose.Schema({
     type: String
   },
   latitude:{
-    type: float
+    type: Float
   },
   longitude:{
-    type: float
+    type: Float
   },
   recentlyVisited:[{
     type: String
