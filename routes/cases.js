@@ -37,7 +37,7 @@ router.post('/add', function(req, res, next) {
   });
 });
 
-// Get all 
+// Get all Cases
 router.get('/getAll', (req, res, next) => {
   Cases.getAll((err, data) => {
     if (err) {
@@ -53,7 +53,6 @@ router.get('/getAll', (req, res, next) => {
     }
   });
 });
-
 
 router.put('/update/:id', (req, res, next) => {
     let updateCase = new Cases({
@@ -100,5 +99,38 @@ router.delete('/delete/:id', (req, res, next) => {
         }
     });
 });
+
+router.get('/vulnerable', (req, res, next) => {
+  Cases.vulnerable((err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
+
+router.get('/distancing', (req, res, next) => {
+  Cases.distancing((err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
+
 
 module.exports = router;

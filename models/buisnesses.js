@@ -45,3 +45,29 @@ module.exports.delete = (req, callback) => {
 module.exports.update = (data, callback) => {
   Businesses.findByIdAndUpdate(data._id, data , callback);
 };
+
+module.exports.wealthy = (callback) => {
+  Businesses.aggregate([
+      { "$group": { "_id": "null", avg: { "$avg": "$ywage"} }}
+  ]).then(res => {
+    const avg= res[0].avg
+    Businesses.aggregate([{$lookup: {from: "Cases", localField: "_id", foreignField: "_id", as: "Info"}}, 
+      {$group: {
+        _id: "$Info.isConfirmed", 
+        "total_above_avg_income": {
+                "$sum": { "$cond": [
+                    { "$gt": [ "$ywage", avg ] },
+                    1,
+                    0
+                ]}
+            },
+        "total_below_avg_income": {
+                "$sum": { "$cond": [
+                    { "$lt": [ "$ywage", avg ] },
+                    1,
+                    0
+                ]}
+            }
+    }}], callback)
+  })
+}

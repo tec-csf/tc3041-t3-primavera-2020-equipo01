@@ -92,4 +92,22 @@ router.delete('/delete/:id', (req, res, next) => {
     });
 });
 
+router.get('/wealthy', (req, res, next) => {
+  
+  Buisnesses.wealthy((err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
+
+
 module.exports = router;

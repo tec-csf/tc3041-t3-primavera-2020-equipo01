@@ -68,16 +68,65 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 
 ### 2.4 Backend
 
-*[Incluya aquí una explicación de la solución utilizada para el backend de la tarea. No olvide incluir las ligas o referencias donde se puede encontrar información de los lenguajes de programación, frameworks y librerías utilizadas.]*
+Para backend se creo una API REST en Node, que se conecta al cluster de Mongo Atlas para realizar las operaciónes CRUD 
 
 #### 2.4.1 Lenguaje de programación
+[Javascript](https://www.javascript.com/) es el lenguaje de programación de Node.
+
 #### 2.4.2 Framework
+MEAN stack
+- [Node](https://nodejs.org/en/about/) 
+- [Express](https://expressjs.com/)
+
 #### 2.4.3 Librerías de funciones o dependencias
+- [Mongoose](https://mongoosejs.com/) para conectarse a MongoDB.
+- [body-parser](https://expressjs.com/en/resources/middleware/body-parser.html)
+-  [cors](https://www.npmjs.com/package/cors)
 
 ## 2.5 Pasos a seguir para utilizar la aplicación
+Dentro de la carpeta backend se deben de instalar las dependencias con el siguiente código
+```bash
+npm install
+```
 
-*[Incluya aquí una guía paso a paso para poder utilizar la aplicación, desde la clonación del repositorio hasta el despliegue de la solución en una plataforma en la nube.]*
+Posteriormente para correr el servidor se debe ejecutar 
+```bash
+npm start
+```
 
-## 3. Referencias
+Listo el backend estara corriendo en el puerto 8081 y mediante un curl request se podra acceder a los endpoints
 
-*[Incluya aquí las referencias a sitios de interés, datasets y cualquier otra información que haya utilizado para realizar la tarea y que le puedan ser de utilidad a otras personas que quieran usarlo como referencia]*
+## 3. Endpoints
+En nuestra base de datos existen 3 colecciónes:
+- Cases
+- Buisnesses
+- Locations
+
+Cada endpoint tiene sus funciones CRUD ademas de ciertos queries con el aggregation framework
+
+### Cases
+- GET : cases/getALL -> Se regresa un JSON con los primeros 100 elementos de la colección, para eficientizar el tiempo de respuesta
+- PUT: cases/add ->  se agrega un objeto nuevo a la colección, se espera un objeto JSON con los datos del objeto nuevo
+- DELETE: cases/delete/:id ->  se borra un objeto con el id en el URL de la colección
+- PUT: cases/update/:id ->  se edita el objeto con el id de la URL de la colección, se espera un objeto JSON con los datos del objeto
+
+### Buisnesses
+- GET : buisnesses/getALL -> Se regresa un JSON con los primeros 100 elementos de la colección, para eficientizar el tiempo de respuesta
+- PUT: buisnesses/add ->  se agrega un objeto nuevo a la colección, se espera un objeto JSON con los datos del objeto nuevo
+- DELETE: buisnesses/delete/:id ->  se borra un objeto con el id en el URL de la colección
+- PUT: buisnesses/update/:id ->  se edita el objeto con el id de la URL de la colección, se espera un objeto JSON con los datos del objeto
+
+### Locations
+- GET : locations/getALL -> Se regresa un JSON con los primeros 100 elementos de la colección, para eficientizar el tiempo de respuesta
+- PUT: locations/add ->  se agrega un objeto nuevo a la colección, se espera un objeto JSON con los datos del objeto nuevo
+- DELETE: locations/delete/:id ->  se borra un objeto con el id en el URL de la colección
+- PUT: locations/update/:id ->  se edita el objeto con el id de la URL de la colección, se espera un objeto JSON con los datos del objeto
+
+
+## 4. Referencias
+- [Documentación de Mongo ](https://docs.mongodb.com/manual/tutorial/query-documents/)
+- [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
+- [Documentación de Node](https://nodejs.org/en/docs/)
+- [Tutorial MEAN](https://www.thepolyglotdeveloper.com/2019/02/building-rest-api-mongodb-mongoose-nodejs/)
+
+
