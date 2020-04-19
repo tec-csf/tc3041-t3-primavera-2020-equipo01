@@ -41,17 +41,20 @@ app.use(function(req, res, next) {
 
 
 // create the routes and set the port
-const people = require('./routes/people');
-const port = 8081;
+const cases = require('./routes/cases');
+const buisnesses = require('./routes/buisnesses')
+const locations = require('./routes/locations')
 
-app.use('/people', people);
+app.use('/cases', cases);
+app.use('/buisnesses', buisnesses);
+app.use('/locations', locations);
 
 
 app.get('/', (req, res) => {
-  res.send('Invalid Endpoint');
+  res.send('Covid19 API');
 });
 
-
+const port = 8081;
 // Start Server on the port setted
 app.listen(port, () => {
   console.log('Server started on port ' + port);

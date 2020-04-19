@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server"
+    "start": "node server",
+    "start-hot": "nodemon server.js"
   },
   "dependencies": {
     "bcryptjs": "*",
@@ -14,6 +15,7 @@
     "express": "*",
     "jsonwebtoken": "*",
     "mongoose": "*",
+    "mongoose-float": "^1.0.4",
     "nodemon": "^1.18.10",
     "passport": "*",
     "passport-jwt": "*",

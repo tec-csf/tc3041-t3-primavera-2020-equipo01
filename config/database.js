@@ -1,3 +1,3 @@
 module.exports = {
-  database: 'mongodb+srv://dcharua:aldcf81vs@cluster0-ytmgt.mongodb.net/test?retryWrites=true&w=majority',
+  database: 'mongodb+srv://dummies:zBv91mocRtdaMIPM@cluster0-rsqtr.gcp.mongodb.net/Covid19?retryWrites=true&w=majority',
 }
