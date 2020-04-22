@@ -61,6 +61,8 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 
 ![Arquitectura de la solución](assets/arqui.png)
 
+La base de datos esta configurada como una arquitectura de desarrollo en Mongo. Es decir, consiste de un solo replica set de 3 nodos y otro replica set de configuración. 
+
 ### 2.3 Frontend
 El frontend fue desarrollado en Angular, para poder ejecutarlo en local se debe de tener instalada el CLI de angular, para instalarla porfavor consultar el siguiente [link](https://cli.angular.io/)
 
