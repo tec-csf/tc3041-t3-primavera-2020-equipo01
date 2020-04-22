@@ -10,10 +10,43 @@ declare var swal: any;
   styleUrls: ['./all-businesses.component.scss']
 })
 export class AllBusinessesComponent implements OnInit {
+  link = environment.apiUrl
+  businesses: Businesses[];
+  p: number = 1;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
+    this.http.get(environment.apiUrl + 'businesses/getAll').subscribe((res:any) => {
+      if (res.success){
+        this.businesses = res.data as Businesses[]
+      }
+    })
   }
+
+  delete(id: string){
+    swal({
+      title: 'Are you sure you want to delete?',
+      text: "",
+      type: '',
+      showCancelButton: true,
+      confirmButtonText: 'YES, DELETE!',
+      cancelButtonText: 'CANCEL'
+    }).then((result) => {    
+      this.http.delete(environment.apiUrl + 'businesses/delete/' + id.toString()).subscribe((res:any) => {
+        if (res.success){
+          swal("The business has been deleted");
+          this.http.get(environment.apiUrl + 'businesses/getAll').subscribe((res:any) => {
+            if (res.success){
+              this.businesses = res.data as Businesses[]
+            }
+          })
+        }
+      })
+    }, (cancel) => {});
+  }
+
 
 }

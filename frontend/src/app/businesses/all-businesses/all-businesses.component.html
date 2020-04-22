@@ -1,6 +1,6 @@
 <div class="container">
-    <h2 class="p-3">See Covid Cases</h2>
-    <button type="button" class="btn btn-primary" [routerLink]="[ '/cases/add']">Add case</button>
+    <h2 class="p-3">See Covid Businesses</h2>
+    <button type="button" class="btn btn-primary" [routerLink]="[ '/businesses/add']">Add business</button>
   
     <table class="table">
       <thead>
@@ -14,14 +14,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let case of cases | paginate: { itemsPerPage: 10, currentPage: p }">
+        <tr *ngFor="let business of businesses | paginate: { itemsPerPage: 10, currentPage: p }">
           <th scope="row">{{business._id}}</th>
           <td>{{business.ywage}}</td>
           <td>{{business.company}}</td>
           <td>{{business.phone}}</td>
           <td>{{business.employeeSince}}</td>
           <td>
-           <button type="button" class="btn btn-info" [routerLink]="[ '/businesses/edit', case._id ]">Edit</button>
+           <button type="button" class="btn btn-info" [routerLink]="[ '/businesses/edit', business._id ]">Edit</button>
             <button type="button" class="btn btn-danger" (click)="delete(businesses._id)">Delete</button>
           </td>
         </tr>
