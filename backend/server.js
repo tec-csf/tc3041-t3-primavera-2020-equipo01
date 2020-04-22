@@ -28,8 +28,10 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 // CORS for requests
 app.use(cors());
+app.use(express.static(__dirname + '/../frontend/dist/covid/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.set('trust proxy', true);
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -50,12 +52,12 @@ app.use('/businesses', businesses);
 app.use('/locations', locations);
 
 
-app.get('/', (req, res) => {
-  res.send('Covid19 API');
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname + '/../frontend/dist/covid/index.html'));
 });
 
-const port = 8081;
+const port = 8080;
 // Start Server on the port setted
 app.listen(port, () => {
-  console.log('Server started on port ' + port);
+  console.log('Server started on port ' + process.env.PORT || port);
 });

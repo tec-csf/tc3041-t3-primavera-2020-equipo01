@@ -22,6 +22,9 @@
     "to": "^0.2.9",
     "update": "^0.7.4"
   },
+  "engines": {
+    "node": "10.x.x"
+  },
   "author": "Daniel Charua",
   "license": "ISC"
 }

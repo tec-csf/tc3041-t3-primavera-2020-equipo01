@@ -69,17 +69,24 @@ Dentro de la carpeta frontend se deben de instalar las dependencias con el sigui
 npm install
 ```
 
-Posteriormente para correr el front se debe ejecutar 
+Posteriormente para compilar el front se debe ejecutar 
+```bash
+ng build --aot
+```
+
+Lo cual genera la carpeta dist/ con el contenido estático de la aplicación
+
+
+Si se quiere ejecutar en servidor local se usa el comando 
 ```bash
 ng serve
 ```
-
-El front estara corriendo en el puerto 4200 y si esta corriendo el backend se comunicará a la base de datos
+El front estará corriendo en el puerto 4200 y si esta ejecutando tambien el backend se comunicará a la base de datos
 
 #### 2.3.1 Lenguaje de programación
-Los lenguajes de programación utilizados para el desarrollo del frontend fueron: HTML SCSS y TypeScript.
+Los lenguajes de programación utilizados para el desarrollo del frontend fueron: HTML, SCSS y TypeScript.
 #### 2.3.2 Framework
-El framework utilizado para el desarrollo del frontend fue: [Angular](https://angular.io/). Es un framework de código abierto, para el desarrollo de aplicaciones web de una sola página.
+El framework utilizado para el desarrollo del frontend fue: [Angular](https://angular.io/). Es un framework de código abierto, para el desarrollo de aplicaciones web de una sola página desarrollado por google.
 
 #### 2.3.3 Librerías de funciones o dependencias
 Para el diseño de las pantallas botones y assets de la aplicación se utilizó [Bootstrap](https://getbootstrap.com/) con sus modificaciones necesarias para una mejor visualización y UI.
@@ -114,7 +121,8 @@ Posteriormente para correr el servidor se debe ejecutar
 npm start
 ```
 
-Listo el backend estara corriendo en el puerto 8081 y mediante un curl request se podra acceder a los endpoints
+Listo el backend estara corriendo en el puerto 8080 y mediante un curl request se podra acceder a los endpoints,
+El index '/' carga el frontend de Angular si es que se hizo el build y existe la carpeta dist/
 
 ## 3. Endpoints
 En nuestra base de datos existen 3 colecciónes:
@@ -147,8 +155,15 @@ Cada endpoint tiene sus funciones CRUD ademas de ciertos queries con el aggregat
 - DELETE: locations/delete/:id ->  se borra un objeto con el id en el URL de la colección
 - PUT: locations/update/:id ->  se edita el objeto con el id de la URL de la colección, se espera un objeto JSON con los datos del objeto
 
+## 4. Cloud deployment
+El proyecto se puede visualizar en este [link](https://hwk1-adb.uc.r.appspot.com/), se esta ejecutando en la plataforma GCP dentro de un AppEngine que sirve el backend y almacena el frontend como contenido estático.
+Para desplegar a AppEngine es necesario tener instalado el [CLI GCP](https://cloud.google.com/sdk/gcloud), una vez instalado se debe de acceder al proyecto dentro de GCP al cual de quiere desplegar la aplicación y estando en la carpeta backend ejecutar el siguiente comando,
+```bash
+gcloud app deploy
+``` 
+El comando busca dentro de la carpeta el archivo app.yaml el cual usa para crear un ambiente en nodejs y agrega los archivos como contenido estático a un bucket
 
-## 4. Referencias
+## 5. Referencias
 - [Documentación de Mongo ](https://docs.mongodb.com/manual/tutorial/query-documents/)
 - [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
 - [Documentación de Node](https://nodejs.org/en/docs/)
