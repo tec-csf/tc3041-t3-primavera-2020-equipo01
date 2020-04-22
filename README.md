@@ -62,6 +62,7 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 ![Arquitectura de la solución](assets/arqui.png)
 
 La base de datos esta configurada como una arquitectura de desarrollo en Mongo. Es decir, consiste de un solo replica set de 3 nodos y otro replica set de configuración. 
+El backend esta ejecutandose en una VM dentro de AppEngine que sirve el contenido desde el puerto 8080, al recibir las solicitudes a su IP  ngix redirige el trafico al backend, este se conecta con el cluster de MongoAtlas y llama al frontend como contenido estático el cual esta almacenádo en un bucket de GCP.
 
 ### 2.3 Frontend
 El frontend fue desarrollado en Angular, para poder ejecutarlo en local se debe de tener instalada el CLI de angular, para instalarla porfavor consultar el siguiente [link](https://cli.angular.io/)
@@ -163,7 +164,7 @@ Para desplegar a AppEngine es necesario tener instalado el [CLI GCP](https://clo
 ```bash
 gcloud app deploy
 ``` 
-El comando busca dentro de la carpeta el archivo app.yaml el cual usa para crear un ambiente en nodejs y agrega los archivos como contenido estático a un bucket
+El comando busca dentro de la carpeta el archivo app.yaml el cual usa para crear un ambiente en nodejs y agrega los archivos del frontend como contenido estático a un bucket
 
 ## 5. Referencias
 - [Documentación de Mongo ](https://docs.mongodb.com/manual/tutorial/query-documents/)
