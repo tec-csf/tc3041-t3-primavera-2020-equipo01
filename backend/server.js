@@ -42,11 +42,11 @@ app.use(function(req, res, next) {
 
 // create the routes and set the port
 const cases = require('./routes/cases');
-const buisnesses = require('./routes/buisnesses')
+const businesses = require('./routes/businesses')
 const locations = require('./routes/locations')
 
 app.use('/cases', cases);
-app.use('/buisnesses', buisnesses);
+app.use('/businesses', businesses);
 app.use('/locations', locations);
 
 

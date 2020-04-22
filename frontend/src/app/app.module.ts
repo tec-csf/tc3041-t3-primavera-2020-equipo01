@@ -7,8 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AllCasesComponent } from './cases/all-cases/all-cases.component';
 import { FormCasesComponent } from './cases/form-cases/form-cases.component';
-import { AllBuisnessesComponent } from './buisnesses/all-buisnesses/all-buisnesses.component';
-import { FormBuisnessesComponent } from './buisnesses/form-buisnesses/form-buisnesses.component';
+import { AllBusinessesComponent } from './businesses/all-businesses/all-businesses.component';
+import { FormBusinessesComponent } from './businesses/form-businesses/form-businesses.component';
 import { FormLocationsComponent } from './locations/form-locations/form-locations.component';
 import { AllLocationsComponent } from './locations/all-locations/all-locations.component';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -20,8 +20,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     AllCasesComponent,
     FormCasesComponent,
-    AllBuisnessesComponent,
-    FormBuisnessesComponent,
+    AllBusinessesComponent,
+    FormBusinessesComponent,
     FormLocationsComponent,
     AllLocationsComponent,
   ],

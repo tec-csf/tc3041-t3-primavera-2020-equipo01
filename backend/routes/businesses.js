@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Buisnesses = require('../models/buisnesses');
+const businesses = require('../models/businesses');
 
 // add 
 router.post('/add', function(req, res, next) {
   // create object with post info
-  let newB = new  Buisnesses({
+  let newB = new  businesses({
     _id: req.body._id,
     ywage: req.body.ywage,
     company: req.body.company,
@@ -15,7 +15,7 @@ router.post('/add', function(req, res, next) {
   });
 
   // Add 
-  Buisnesses.add(newB, (err, data) => {
+  businesses.add(newB, (err, data) => {
     // if err return the error
     if (err) {
       res.json({
@@ -35,7 +35,7 @@ router.post('/add', function(req, res, next) {
 
 // Get all 
 router.get('/getAll', (req, res, next) => {
-  Buisnesses.getAll((err, data) => {
+  businesses.getAll((err, data) => {
     if (err) {
       res.json({
         success: false,
@@ -52,7 +52,7 @@ router.get('/getAll', (req, res, next) => {
 
 
 router.put('/update/:id', (req, res, next) => {
-    let updateB = new  Buisnesses({
+    let updateB = new  businesses({
         _id: req.body._id,
         ywage: req.body.ywage,
         company: req.body.company,
@@ -61,7 +61,7 @@ router.put('/update/:id', (req, res, next) => {
         suppliers: req.body.associates
     });
 
-    Buisnesses.update(updateB, (err, data) => {
+    businesses.update(updateB, (err, data) => {
         if (err) {
             res.json({
             success: false,
@@ -77,7 +77,7 @@ router.put('/update/:id', (req, res, next) => {
 });
 
 router.delete('/delete/:id', (req, res, next) => {
-    Buisnesses.delete(req, (err, data) => {
+    businesses.delete(req, (err, data) => {
         if (err) {
             res.json({
             success: false,
@@ -94,7 +94,7 @@ router.delete('/delete/:id', (req, res, next) => {
 
 router.get('/wealthy', (req, res, next) => {
   
-  Buisnesses.wealthy((err, data) => {
+  businesses.wealthy((err, data) => {
     if (err) {
       res.json({
         success: false,
