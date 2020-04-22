@@ -42,7 +42,7 @@ const CasesSchema = mongoose.Schema({
 
 const Cases = module.exports = mongoose.model('Cases', CasesSchema, 'Cases');
 
-module.exports.add = (newCase, callback) => {
+module.exports.addCase = (newCase, callback) => {
   newCase.save(callback);
 }
 
@@ -54,6 +54,11 @@ module.exports.getAll = (callback) => {
 module.exports.delete = (req, callback) => {
   const { id } = req.params;
   Cases.findByIdAndDelete(id, callback);
+};
+
+module.exports.getOne = (req, callback) => {
+  const { id } = req.params;
+  Cases.findOne({ _id: id }, callback);
 };
 
 module.exports.update = (data, callback) => {

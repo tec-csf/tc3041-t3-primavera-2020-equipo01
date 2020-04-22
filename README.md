@@ -62,6 +62,19 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 *[Incluya aquí un diagrama donde se aprecie la arquitectura de la solución propuesta, así como la interacción entre los diferentes componentes de la misma.]*
 
 ### 2.3 Frontend
+Angular
+
+Dentro de la carpeta frontend se deben de instalar las dependencias con el siguiente código
+```bash
+npm install
+```
+
+Posteriormente para correr el frotn se debe ejecutar 
+```bash
+ng start
+```
+
+Listo el front estara corriendo en el puerto 4200 y si esta corriendo el backend se comunicara a la base de datos
 
 *[Incluya aquí una explicación de la solución utilizada para el frontend de la tarea. No olvide incluir las ligas o referencias donde se puede encontrar información de los lenguajes de programación, frameworks y librerías utilizadas.]*
 

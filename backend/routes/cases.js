@@ -5,6 +5,7 @@ const Cases = require('../models/cases');
 // add case
 router.post('/add', function(req, res, next) {
   // create object with post info
+
   let newCase = new Cases({
     _id: req.body._id,
     name: req.body.name,
@@ -18,7 +19,7 @@ router.post('/add', function(req, res, next) {
     recentlyVisited: req.body.recentlyVisited,
     closestFriends: req.body.closestFriends
   });
-
+	console.log(newCase)
   // Add Case
   Cases.addCase(newCase, (err, data) => {
     // if err return the error
@@ -32,6 +33,23 @@ router.post('/add', function(req, res, next) {
       res.json({
         success: true,
         msg: 'El objeto fue agregada generado'
+      });
+    }
+  });
+});
+
+// Get all Cases
+router.get('/get/:id', (req, res, next) => {
+  Cases.getOne(req, (err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
       });
     }
   });
