@@ -36,7 +36,7 @@ const CasesSchema = mongoose.Schema({
     type: String
   }],
   closestFriends: [{
-    type: String
+    type: Number
   }]
 });
 
