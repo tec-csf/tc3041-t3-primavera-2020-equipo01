@@ -10,7 +10,7 @@ declare var swal: any;
   styleUrls: ['./all-businesses.component.scss']
 })
 export class AllBusinessesComponent implements OnInit {
-  link = environment.apiUrl
+  json = ""
   businesses: Businesses[];
   p: number = 1;
 
@@ -48,5 +48,12 @@ export class AllBusinessesComponent implements OnInit {
     }, (cancel) => {});
   }
 
-
+  openModal(query){
+    this.json = "loading.."
+    this.http.get(environment.apiUrl + 'businesses/' +  query).subscribe((res:any) => {
+      if (res.success){
+        this.json = JSON.stringify(res.data)
+      }
+    })
+  }
 }

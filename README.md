@@ -54,33 +54,37 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 
 *[Incluya aquí el modelo JSON Schema y explique los patrones utilizados en cada caso.*
 
-![Arquitectura de la solución](assets/diagrama.png)
+![Modelo de la base de datos](assets/diagrama.png)
 
 
 ### 2.2 Arquitectura de la solución
 
-*[Incluya aquí un diagrama donde se aprecie la arquitectura de la solución propuesta, así como la interacción entre los diferentes componentes de la misma.]*
+![Arquitectura de la solución](assets/arqui.png)
 
 ### 2.3 Frontend
-Angular
+El frontend fue desarrollado en Angular, para poder ejecutarlo en local se debe de tener instalada el CLI de angular, para instalarla porfavor consultar el siguiente [link](https://cli.angular.io/)
 
 Dentro de la carpeta frontend se deben de instalar las dependencias con el siguiente código
 ```bash
 npm install
 ```
 
-Posteriormente para correr el frotn se debe ejecutar 
+Posteriormente para correr el front se debe ejecutar 
 ```bash
 ng serve
 ```
 
-Listo el front estara corriendo en el puerto 4200 y si esta corriendo el backend se comunicara a la base de datos
-
-*[Incluya aquí una explicación de la solución utilizada para el frontend de la tarea. No olvide incluir las ligas o referencias donde se puede encontrar información de los lenguajes de programación, frameworks y librerías utilizadas.]*
+El front estara corriendo en el puerto 4200 y si esta corriendo el backend se comunicará a la base de datos
 
 #### 2.3.1 Lenguaje de programación
+Los lenguajes de programación utilizados para el desarrollo del frontend fueron: HTML SCSS y TypeScript.
 #### 2.3.2 Framework
+El framework utilizado para el desarrollo del frontend fue: [Angular](https://angular.io/). Es un framework de código abierto, para el desarrollo de aplicaciones web de una sola página.
+
 #### 2.3.3 Librerías de funciones o dependencias
+Para el diseño de las pantallas botones y assets de la aplicación se utilizó [Bootstrap](https://getbootstrap.com/) con sus modificaciones necesarias para una mejor visualización y UI.
+
+Una de las librerias mas importantes es RXJS ya que es un dependencia que te permite hacer peticiones http y procesarlas para que puedas ocupar la información que necesites de las bases de datos que procesa el backend y los microservicios.
 
 ### 2.4 Backend
 
@@ -125,12 +129,17 @@ Cada endpoint tiene sus funciones CRUD ademas de ciertos queries con el aggregat
 - PUT: cases/add ->  se agrega un objeto nuevo a la colección, se espera un objeto JSON con los datos del objeto nuevo
 - DELETE: cases/delete/:id ->  se borra un objeto con el id en el URL de la colección
 - PUT: cases/update/:id ->  se edita el objeto con el id de la URL de la colección, se espera un objeto JSON con los datos del objeto
+- GET : cases/unwind -> Se regresa un JSON con el resultado del query unwind
+- GET : cases/geoNear -> Se regresa un JSON con el resultado del query neoNear
+- GET : cases/facet -> Se regresa un JSON con el resultado del query facet
+- GET : cases/graphLookup -> Se regresa un JSON con el resultado del query graphLookup
 
 ### Buisnesses
 - GET : buisnesses/getALL -> Se regresa un JSON con los primeros 100 elementos de la colección, para eficientizar el tiempo de respuesta
 - PUT: buisnesses/add ->  se agrega un objeto nuevo a la colección, se espera un objeto JSON con los datos del objeto nuevo
 - DELETE: buisnesses/delete/:id ->  se borra un objeto con el id en el URL de la colección
 - PUT: buisnesses/update/:id ->  se edita el objeto con el id de la URL de la colección, se espera un objeto JSON con los datos del objeto
+- GET : cases/lookup -> Se regresa un JSON con el resultado del query lookup
 
 ### Locations
 - GET : locations/getALL -> Se regresa un JSON con los primeros 100 elementos de la colección, para eficientizar el tiempo de respuesta
@@ -144,5 +153,6 @@ Cada endpoint tiene sus funciones CRUD ademas de ciertos queries con el aggregat
 - [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
 - [Documentación de Node](https://nodejs.org/en/docs/)
 - [Tutorial MEAN](https://www.thepolyglotdeveloper.com/2019/02/building-rest-api-mongodb-mongoose-nodejs/)
+- [Conexión con Mongoose](https://mongoosejs.com/docs/guide.html)
 
 

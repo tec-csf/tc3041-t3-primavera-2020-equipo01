@@ -48,6 +48,23 @@ router.get('/getAll', (req, res, next) => {
   });
 });
 
+// Get One
+router.get('/get/:id', (req, res, next) => {
+  Locations.getOne(req, (err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
+
 
 router.put('/update/:id', (req, res, next) => {
     let updateB = new  Locations({

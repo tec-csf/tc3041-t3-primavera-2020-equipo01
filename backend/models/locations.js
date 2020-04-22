@@ -24,8 +24,14 @@ module.exports.add = (newL, callback) => {
 
 
 module.exports.getAll = (callback) => {
-  Locations.find(callback).limit(100);
+  Locations.find(callback).limit(1000);
 }
+
+module.exports.getOne = (req, callback) => {
+  const { id } = req.params;
+  Locations.findOne({ _id: id }, callback);
+};
+
 
 module.exports.delete = (req, callback) => {
   const { id } = req.params;

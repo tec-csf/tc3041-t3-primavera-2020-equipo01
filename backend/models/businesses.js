@@ -34,8 +34,13 @@ module.exports.add = (newB, callback) => {
 
 
 module.exports.getAll = (callback) => {
-  Businesses.find(callback).limit(100);
+  Businesses.find(callback).limit(1000);
 }
+
+module.exports.getOne = (req, callback) => {
+  const { id } = req.params;
+  Businesses.findOne({ _id: id }, callback);
+};
 
 module.exports.delete = (req, callback) => {
   const { id } = req.params;
@@ -46,6 +51,7 @@ module.exports.update = (data, callback) => {
   Businesses.findByIdAndUpdate(data._id, data , callback);
 };
 
+// lookup
 module.exports.wealthy = (callback) => {
   Businesses.aggregate([
       { "$group": { "_id": "null", avg: { "$avg": "$ywage"} }}

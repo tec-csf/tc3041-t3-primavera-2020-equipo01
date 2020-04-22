@@ -50,6 +50,23 @@ router.get('/getAll', (req, res, next) => {
   });
 });
 
+// Get One
+router.get('/get/:id', (req, res, next) => {
+  businesses.getOne(req, (err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
+
 
 router.put('/update/:id', (req, res, next) => {
     let updateB = new  businesses({
@@ -92,7 +109,7 @@ router.delete('/delete/:id', (req, res, next) => {
     });
 });
 
-router.get('/wealthy', (req, res, next) => {
+router.get('/lookup', (req, res, next) => {
   
   businesses.wealthy((err, data) => {
     if (err) {

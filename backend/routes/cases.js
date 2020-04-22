@@ -19,7 +19,6 @@ router.post('/add', function(req, res, next) {
     recentlyVisited: req.body.recentlyVisited,
     closestFriends: req.body.closestFriends
   });
-	console.log(newCase)
   // Add Case
   Cases.addCase(newCase, (err, data) => {
     // if err return the error
@@ -38,7 +37,7 @@ router.post('/add', function(req, res, next) {
   });
 });
 
-// Get all Cases
+// Get One
 router.get('/get/:id', (req, res, next) => {
   Cases.getOne(req, (err, data) => {
     if (err) {
@@ -118,7 +117,7 @@ router.delete('/delete/:id', (req, res, next) => {
     });
 });
 
-router.get('/vulnerable', (req, res, next) => {
+router.get('/unwind', (req, res, next) => {
   Cases.vulnerable((err, data) => {
     if (err) {
       res.json({
@@ -134,7 +133,7 @@ router.get('/vulnerable', (req, res, next) => {
   });
 });
 
-router.get('/distancing', (req, res, next) => {
+router.get('/graphLookup', (req, res, next) => {
   Cases.distancing((err, data) => {
     if (err) {
       res.json({
@@ -150,5 +149,37 @@ router.get('/distancing', (req, res, next) => {
   });
 });
 
+
+router.get('/facet', (req, res, next) => {
+  Cases.facet((err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
+
+router.get('/geoNear', (req, res, next) => {
+  Cases.geoNear((err, data) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: err
+      });
+    } else {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
 
 module.exports = router;

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Cases } from 'src/app/shared/models/cases';
 declare var swal: any;
+declare var $: any;
 
 @Component({
   selector: 'app-all-cases',
@@ -10,7 +11,7 @@ declare var swal: any;
   styleUrls: ['./all-cases.component.scss']
 })
 export class AllCasesComponent implements OnInit {
-  link = environment.apiUrl
+  json:String;
   cases: Cases[];
   p: number = 1;
 
@@ -48,4 +49,13 @@ export class AllCasesComponent implements OnInit {
     }, (cancel) => {});
   }
 
+
+  openModal(query){
+    this.json = "loading.."
+    this.http.get(environment.apiUrl + 'cases/' +  query).subscribe((res:any) => {
+      if (res.success){
+        this.json = JSON.stringify(res.data)
+      }
+    })
+  }
 }
