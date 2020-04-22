@@ -21,7 +21,7 @@ const BusinessesSchema = mongoose.Schema({
     type: String
   },
   suppliers:[{
-    type: Number
+    type: Number // array
   }]
   
 });
