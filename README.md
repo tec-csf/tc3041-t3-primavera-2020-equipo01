@@ -71,7 +71,7 @@ npm install
 
 Posteriormente para correr el frotn se debe ejecutar 
 ```bash
-ng start
+ng serve
 ```
 
 Listo el front estara corriendo en el puerto 4200 y si esta corriendo el backend se comunicara a la base de datos
