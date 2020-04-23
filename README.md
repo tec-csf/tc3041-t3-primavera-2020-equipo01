@@ -56,7 +56,12 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 
 ![Modelo de la base de datos](assets/diagrama.png)
 
+El patrón de modelación de nuestra base de datos es referencial. Es decir, en vez de embeber subdocumentos como parte de una colección para denotar relación se guardan referencias en los documentos a documentos en otras colecciones. 
 
+* La colección Cases guarda una relación referencial con Businesses 1:1 (Businesses._id)<->(Cases._id)
+* La colección Cases guarda una relación referencial con Locations 1:1 (Cases._id)<->(Locations._id)
+* La colección Cases guarda una relacion referencial con si misma 1:N Vector(closestFriends[])*->(Cases._id)
+* La colección Businesses guarda una relación referencial con si misma 1:N Vector(suppliers[])*->(Businesses._id)
 ### 2.2 Arquitectura de la solución
 
 ![Arquitectura de la solución](assets/arqui.png)
