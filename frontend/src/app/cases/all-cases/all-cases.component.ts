@@ -26,7 +26,7 @@ export class AllCasesComponent implements OnInit {
       if (res.success){
         this.cases = res.data as Cases[]
       }
-    })
+    }, error =>  console.log(error))
   }
 
   delete(id: string){

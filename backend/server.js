@@ -31,17 +31,16 @@ app.use(cors());
 app.use(express.static(__dirname + '/../frontend/dist/covid/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.set('trust proxy', true);
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); 
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE'); 
   res.setHeader('Access-Control-Allow-Credentials', true); 
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, X-Requested-With');
   next();
 })
 
-
+app.set('trust proxy', true);
 // create the routes and set the port
 const cases = require('./routes/cases');
 const businesses = require('./routes/businesses')
@@ -56,8 +55,8 @@ app.get('/*', function(req,res) {
   res.sendFile(path.join(__dirname + '/../frontend/dist/covid/index.html'));
 });
 
-const port = 8080;
+const port = 8081;
 // Start Server on the port setted
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log('Server started on port ' + process.env.PORT || port);
 });
