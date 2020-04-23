@@ -11,6 +11,7 @@ declare var $: any;
   styleUrls: ['./all-cases.component.scss']
 })
 export class AllCasesComponent implements OnInit {
+  loading = true;
   json:String;
   cases: Cases[];
   p: number = 1;
@@ -21,6 +22,7 @@ export class AllCasesComponent implements OnInit {
 
   ngOnInit() {
     this.http.get(environment.apiUrl + 'cases/getAll').subscribe((res:any) => {
+      this.loading = false;
       if (res.success){
         this.cases = res.data as Cases[]
       }

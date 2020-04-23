@@ -12,6 +12,7 @@ declare var swal: any;
 export class AllLocationsComponent implements OnInit {
   link = environment.apiUrl
   locations: Locations[];
+  loading = true;
   p: number = 1;
 
   constructor(
@@ -20,6 +21,7 @@ export class AllLocationsComponent implements OnInit {
 
   ngOnInit() {
     this.http.get(environment.apiUrl + 'locations/getAll').subscribe((res:any) => {
+      this.loading = false;
       if (res.success){
         this.locations = res.data as Locations[]
       }

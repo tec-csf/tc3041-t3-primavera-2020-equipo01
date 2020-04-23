@@ -4,6 +4,7 @@
     <button type="button" class="btn btn-info" (click)="openModal('lookup')" data-toggle="modal" data-target="#modal">
       lookup query
     </button>
+    <p *ngIf="loading">Loading..</p>
     <table class="table">
       <thead>
         <tr>

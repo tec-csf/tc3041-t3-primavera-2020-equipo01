@@ -13,6 +13,7 @@ export class AllBusinessesComponent implements OnInit {
   json = ""
   businesses: Businesses[];
   p: number = 1;
+  loading = true;
 
   constructor(
     private http: HttpClient
@@ -20,6 +21,7 @@ export class AllBusinessesComponent implements OnInit {
 
   ngOnInit() {
     this.http.get(environment.apiUrl + 'businesses/getAll').subscribe((res:any) => {
+      this.loading = false;
       if (res.success){
         this.businesses = res.data as Businesses[]
       }
