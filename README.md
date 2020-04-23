@@ -77,10 +77,11 @@ Dentro de la carpeta frontend se deben de instalar las dependencias con el sigui
 npm install
 ```
 
-Posteriormente para compilar el front se debe ejecutar 
+Posteriormente para compilar el front se debe ejecutar
 ```bash
-ng build --aot
+ng build --aot --prod
 ```
+El flag --pord se usa si se va a deplegar a la nuve en producción
 
 Lo cual genera la carpeta dist/ con el contenido estático de la aplicación
 
