@@ -11,7 +11,7 @@ var average = db.Businesses.aggregate([{ "$group": { "_id": "null", avg: { "$avg
 
 // Lookup query
 // Displays number of people below and above average wage grouped into confirmed and dismissed cases
-db.explain().Businesses.aggregate([{$lookup: {from: "Cases", localField: "_id", foreignField: "_id", as: "Info"}},
+db.Businesses.explain().aggregate([{$lookup: {from: "Cases", localField: "_id", foreignField: "_id", as: "Info"}},
 	{$group: {
 		_id: "$Info.isConfirmed",
 		"total_above_avg_income": {
@@ -32,7 +32,7 @@ db.explain().Businesses.aggregate([{$lookup: {from: "Cases", localField: "_id", 
 
 // Graphlookup query
 // Displays the network of people that 10 random hosts would infect up to a recursive depth of 10 layers
-    db.explain().Cases.aggregate( [
+    db.Cases.explain().aggregate( [
        
     { $match: { isConfirmed: true } },
         { $sample: { size: 10 } },
@@ -50,7 +50,7 @@ db.explain().Businesses.aggregate([{$lookup: {from: "Cases", localField: "_id", 
     ] )
 
 // geoNear, shows the people in cases divided by genre, who are over 60 years old and within a 200km distance of the point
-db.explain().Cases.aggregate( [
+db.Cases.explain().aggregate( [
   {
     '$geoNear': {
       'near': {
@@ -87,7 +87,7 @@ db.explain().Cases.aggregate( [
 
 // Facet, first part divides the people confirmed with covid19 by age group in cases, second part divides the confirmed cases by genre in alphabetical order and shows the complete names.
 
-db.explain().Cases.aggregate( 
+db.Cases.explain().aggregate( 
 [
   {
     '$match': {
