@@ -70,7 +70,7 @@ La base de datos esta configurada como una arquitectura de desarrollo en Mongo. 
 El backend esta ejecutandose en una VM dentro de AppEngine que sirve el contenido desde el puerto 8080, al recibir las solicitudes a su IP  ngix redirige el trafico al backend, este se conecta con el cluster de MongoAtlas y llama al frontend como contenido estático el cual esta almacenádo en un bucket de GCP.
 
 ### 2.3 Frontend
-El frontend fue desarrollado en Angular, para poder ejecutarlo en local se debe de tener instalada el CLI de angular, para instalarla porfavor consultar el siguiente [link](https://cli.angular.io/)
+El frontend fue desarrollado en Angular, para poder ejecutarlo en local se debe de tener instalada el CLI de angular, para instalarla porfavor consultar el siguiente [link](https://cli.angular.io/). Para ver el frontend, entre al siguiente link [link](https://hwk1-adb.uc.r.appspot.com/).
 
 Dentro de la carpeta frontend se deben de instalar las dependencias con el siguiente código
 ```bash
