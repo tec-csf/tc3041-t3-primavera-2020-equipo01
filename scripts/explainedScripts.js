@@ -9,6 +9,7 @@ db.Cases.explain().aggregate([{$match: {isConfirmed:true}},
 // Obtain average of yearly wage
 var average = db.Businesses.aggregate([{ "$group": { "_id": "null", avg: { "$avg": "$ywage"} }}]).toArray()[0]["avg"];
 
+// Lookup query
 // Displays number of people below and above average wage grouped into confirmed and dismissed cases
 db.explain().Businesses.aggregate([{$lookup: {from: "Cases", localField: "_id", foreignField: "_id", as: "Info"}},
 	{$group: {
@@ -27,8 +28,9 @@ db.explain().Businesses.aggregate([{$lookup: {from: "Cases", localField: "_id", 
                 0
             ]}
         }
-		}}])
+		}}, {$sort: {"Cases.total_above_avg_income":-1}}])
 
+// Graphlookup query
 // Displays the network of people that 10 random hosts would infect up to a recursive depth of 10 layers
     db.explain().Cases.aggregate( [
        
