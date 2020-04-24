@@ -53,9 +53,9 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 ### 2.1 Modelo de la *base de datos* 
 
 *db.createCollection("businesses", {*
-   validator: {
-      $jsonSchema: {
-         bsonType: "object",
+   *validator: {*
+      *$jsonSchema: {*
+         *bsonType: "object",*
          required: [ "_id", "ywage", "company", "phone", "employeeSince", "suppliers" ],
          properties: {
             _id: {
