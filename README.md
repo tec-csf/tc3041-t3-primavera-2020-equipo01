@@ -54,7 +54,7 @@ A continuación aparecen descritos los diferentes elementos que forman parte de 
 
 *El JSON Schema de la base de datos se encuentra en el folder "database".*
 
-![Modelo de la base de datos](assets/diagrama.png)
+![Modelo de la base de datos](assets/Diagrama.png)
 
 El patrón de modelación de nuestra base de datos es referencial. Es decir, en vez de embeber subdocumentos como parte de una colección para denotar relación se guardan referencias en los documentos a documentos en otras colecciones. 
 
