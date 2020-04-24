@@ -74,6 +74,7 @@ module.exports.wealthy = (callback) => {
                     0
                 ]}
             }
-    }}], callback)
+    }},
+    {$sort: {"Cases.total_above_avg_income":-1}}], callback)
   })
 }
